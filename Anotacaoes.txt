@@ -1,0 +1,100 @@
+📌FASE 1 — Banco + conexão Python/PSQL ✔️ (concluída)
+📌FASE 2 — CRUD de produtos (inserir✔️, listar, editar, excluir) ⬅️ (em andamento)
+📌FASE 3 — API com FastAPI
+📌FASE 4 — Frontend em React
+📌FASE 5 — Validações e UX
+📌FASE 6 — Deploy
+📌FASE 7 — Documentação profissional
+
+PARA RODAR  python -m (Conexao_Python_SQL, CRUD)/(subpasta)/(arquivo.py)
+
+📌FASE 1 
+usar psycopg2 para conectar python com postgreSQL, instalei na pasta raiz com
+pip install psycopg2-binary
+
+🌐 O Python chama o psycopg2 >
+O psycopg2 abre uma conexão TCP com o PostgreSQL >
+Ele envia comandos SQL como strings >
+O PostgreSQL responde >
+O psycopg2 devolve os resultados para o Python.
+
+
+💻 POSTGRESSS
+1- Servers> Register > ProjetoPython
+2- ProjetoPython > Databases > Tables
+3- Criei a tabela com interface (serial para id, varchar para nome e categoria, integer para quantidade e numeric para preco)
+4-  alter table produtos
+    add column criado_em timestamp default current_timestamp
+    **adicionei a coluna da entrada com hoario**
+
+
+💻 VSCODE
+🗂️Conexao_Python_SQL
+1- Criei arquivo vazio __init__.py para que Python reconheça Conexao_Python_SQL como módulo
+📁db.py
+1- Arquivo db.py para abrir conexão com o PostgreSQL,
+permitir que a aplicação faça inserts, selects, updates, deletes e
+tratar erros básicos
+2- Com um try para tentar conectar com os dados que eu inseri, se bater conecta, senao,
+entra no except, com a Exception sendo tratada como erro e depois é mostrado o erro e seu tipo
+
+📁test_connection.py
+1- usado para testar a conexao do python com o postgres utilizando o psycopg2
+2- o arquivo importa get_conection e o coloca na funcao main
+3- se conseguir abrir, printa "Conexao OK" e fecha, senao, mostra a falha
+4- O bloco if __name__ == "__main__": garante que a função main() só será
+executada quando o arquivo test_connection.py for executado diretamente pelo
+usuário. Se este arquivo for importado por outro módulo, o código dentro desse
+bloco não roda automaticamente.
+
+
+
+📌FASE 2
+💻 POSTGRESSS
+1- ProjetoPython> db> controle_estoque> schemas> public> tables> create table
+2- criei a tabela com interfacce (serial para id, varchar para nome e email e timestamp para criado em)
+3- alter table usuarios
+    add constraint usuarios_email_unique unique (email)
+    ***cada email é unico***
+4- alter table usuarios
+    alter column criado_em type timestamptz using criado_em
+    ***altera para timestamp***
+5- alter table usuarios
+    add column criado_em timestamp default current_timestamp
+    ***adiciona coluna de quando foi criado e com horario***
+6- alter table usuarios
+    add column senha varchar(99) not null
+    ***adiciona a coluna de senha***
+
+
+💻 VSCODE
+🗂️CRUD > usuarios
+
+🟦1- INSERIR
+📁insert_usuario.py
+1- funcao inserir usuarios
+2- importei o teste de conexao
+3- criei uma função que recebe os parametros de nome, email e senha
+4- se a conexao der certo, é criado um cursor para inserir os comandos.
+- O cursor insere com o cursor.execute() os dados no banco levando em conta os parametros e os placeholders
+- Depois é salvo com o commit e mostra o sucesso
+5- se der erro, alerta e mostra o tipo
+6- Depois fecha a conexao e cursor
+
+📁test_insert_usuario.py
+1- Importa a funcao para adicionar e passa os parametros para adicao
+
+
+🟩2- listar
+📁list_usuario.py
+1- Funcao listar usuarios
+2- importei o teste de conexão
+3- criei a funcao para listar
+4- se a conexao der certo, sao criados os usuarios, que é o fetchall que retorna uma tupla com os valores
+- é criado um cursor para inserir os comandos
+- o comando é executado e retorna a tupla usuarios
+5- se der erro, alerta e mostra o tipo
+6- Depois fecha a conexao e cursor
+
+📁test_list_usuario.py
+1- Importa a funcao para adicionar, itera sobre a tupla usuarios e reotrnam os valores
