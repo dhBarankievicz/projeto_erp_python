@@ -1,5 +1,5 @@
 📌FASE 1 — Banco + conexão Python/PSQL ✔️ (concluída)
-📌FASE 2 — CRUD de produtos (inserir✔️, listar, editar, excluir) ⬅️ (em andamento)
+📌FASE 2 — CRUD de produtos (inserir✔️, listar✔️, editar, excluir) ⬅️ (em andamento)
 📌FASE 3 — API com FastAPI
 📌FASE 4 — Frontend em React
 📌FASE 5 — Validações e UX
@@ -8,7 +8,7 @@
 
 PARA RODAR  python -m (Conexao_Python_SQL, CRUD)/(subpasta)/(arquivo.py)
 
-📌FASE 1 
+📌FASE 1    
 usar psycopg2 para conectar python com postgreSQL, instalei na pasta raiz com
 pip install psycopg2-binary
 
@@ -90,11 +90,12 @@ bloco não roda automaticamente.
 1- Funcao listar usuarios
 2- importei o teste de conexão
 3- criei a funcao para listar
-4- se a conexao der certo, sao criados os usuarios, que é o fetchall que retorna uma tupla com os valores
-- é criado um cursor para inserir os comandos
-- o comando é executado e retorna a tupla usuarios
+4- se a conexao der certo, é criado um cursor para inserir os comandos
+- o comando é executado 
+- é criado a variavel usuarios com o cursor.fetchall(método do cursor usado para buscar todos os resultados retornados pelo último comando SQL) 
+- ele devolve uma lista de tuplas, onde cada tupla representa uma linha da tabela.
 5- se der erro, alerta e mostra o tipo
 6- Depois fecha a conexao e cursor
 
 📁test_list_usuario.py
-1- Importa a funcao para adicionar, itera sobre a tupla usuarios e reotrnam os valores
+1- Importa a funcao para listar, itera sobre os valores retornados
