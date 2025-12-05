@@ -11,6 +11,7 @@ Operações básicas de CRUD (focado em usuários por enquanto)
 O projeto não utiliza Flask, apenas scripts Python organizados em pastas.
 
 📁 Estrutura do Projeto
+```
 Mini_ERP_python/
 │
 ├── .gitignore
@@ -35,6 +36,7 @@ Mini_ERP_python/
 │       │   test_list_usuario.py
 │
 └── __pycache__/             # ignorado pelo Git
+```
 
 🗄️ Banco de Dados
 Tabela usuarios
