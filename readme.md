@@ -25,9 +25,13 @@ Mini_ERP_python/
 ├── CRUD/
 │   ├── produtos/            # (vazio por enquanto)
 │   └── usuarios/
+|       |   delete_usuario.py
+|       |   edit_usuario.py
 │       │   insert_usuario.py
 │       │   list_usuario.py
-│       │   test_insert_usuario.py
+│       │   test_delete_usuario.py
+│       │   test_edit_usuario.py
+|       │   test_insert_usuario.py
 │       │   test_list_usuario.py
 │
 └── __pycache__/             # ignorado pelo Git
@@ -94,7 +98,7 @@ python CRUD/usuarios/list_usuario.py
 
 ✔ Conexão com PostgreSQL
 ✔ Teste de conexão
-✔ CRUD básico de usuários (inserir e listar)
+✔ CRUD básico de usuários (inserir, listar, editar e deletar)
 ✔ Estrutura organizada em pastas
 ✨ Preparando para expandir para “produtos”, “vendas”, etc.
 

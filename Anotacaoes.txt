@@ -1,6 +1,6 @@
 📌FASE 1 — Banco + conexão Python/PSQL ✔️ (concluída)
-📌FASE 2 — CRUD de produtos (inserir✔️, listar✔️, editar, excluir) ⬅️ (em andamento)
-📌FASE 3 — API com FastAPI
+📌FASE 2 — CRUD de produtos (inserir✔️, listar✔️, excluir✔️, excluir✔️)
+📌FASE 3 — API com FastAPI ⬅️ (em andamento)
 📌FASE 4 — Frontend em React
 📌FASE 5 — Validações e UX
 📌FASE 6 — Deploy
@@ -82,7 +82,8 @@ bloco não roda automaticamente.
 6- Depois fecha a conexao e cursor
 
 📁test_insert_usuario.py
-1- Importa a funcao para adicionar e passa os parametros para adicao
+1- Importa a funcao para adicionar
+2- passa nome, email e senha como parâmetros para adicionar
 
 
 🟩2- listar
@@ -94,8 +95,50 @@ bloco não roda automaticamente.
 - o comando é executado 
 - é criado a variavel usuarios com o cursor.fetchall(método do cursor usado para buscar todos os resultados retornados pelo último comando SQL) 
 - ele devolve uma lista de tuplas, onde cada tupla representa uma linha da tabela.
+- Depois é salvo com o commit e mostra o sucesso
 5- se der erro, alerta e mostra o tipo
 6- Depois fecha a conexao e cursor
 
 📁test_list_usuario.py
-1- Importa a funcao para listar, itera sobre os valores retornados
+1- Importa a funcao para deletar 
+2- Chama funcao que itera sobre os usuários retornados
+
+
+🟨3- Editar 
+📁edit_usuario.py
+1- Funcao editar usuarios
+2- Importei o teste de conexao
+3- Criei a função com parametros para editar
+4- Se a conexao der certo, é criado um cursor para inserir os comandos
+- o comando é executado 
+- Altera nome, email e senha no id selecionado com base nos parametros
+- Depois é salvo com o commit
+- Se o cursor alterou pelo menos uma linha (rowcount > 0), imprime que o usuário foi atualizado com sucesso.
+5- se der erro, alerta e mostra o tipo
+6- Depois fecha a conexao e cursor
+
+📁test_edit_usuario.py
+1- Importa a funcao para deletar 
+2- Chama funcao que com base no id e nos demais parametros altera os dados
+
+
+🟥4- Deletar
+📁delete_usuario.py
+1- Funcao excluir usuarios
+2- Importei o teste de conexao
+3- Criei a função com parametros para excluir
+4- Se a conexao der certo, é criado um cursor para inserir os comandos
+- o comando é executado 
+- Deleta o usuario com base no ID selecionado
+- Depois é salvo com o commit
+- Se o cursor alterou pelo menos uma linha (rowcount > 0), imprime que o usuário foi atualizado com sucesso.
+5- se der erro, alerta e mostra o tipo
+6- Depois fecha a conexao e cursor
+
+📁test_delete_usuario.py
+1- Importa a funcao para deletar 
+2- Chama funcao passando id do usuario a ser removido
+
+
+
+📌FASE 3
