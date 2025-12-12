@@ -142,3 +142,29 @@ bloco não roda automaticamente.
 
 
 📌FASE 3
+1- Instalacao da Fast API pip install "fastapi[standard]"
+🗂️api - funcao que corresponde a uma URL
+📁main.py - inicializa, configura e coloca as rotas
+🗂️routers - define end points  e rotas do CRUD
+🗂️models - valida dados de entrada
+
+*uvicorn servidor local, para rodar, utiliza python -m uvicorn api.main:app --reload*
+
+🗂️api > 🗂️models> 📁schema.py
+1- Importa a biblioteca Pydantic
+2- Cria uma classe com modelo de dados (schema) que sera chamada no routers
+3- Coloca o formato dos dados, declarando que nome, senha e email devem ser strings
+4- Ao receber um JSON o FastAPI coloca no molde Usuario_Schema, onde devem ter todos os parâmetros como strings
+
+
+🗂️api > 🗂️routers > 📁usuarios.py
+1- Importa ferramentas do FastAPI
+2- Importa funcoes do CRUD
+3- Dependendo do metodo, adiciona, atualiza, lê ou deleta
+
+🗂️api > 🗂️main.py
+1- Importa o FastAPI (cria a aplicacao) e atribui a variavel app seu valor
+2- Importa as rotas feitas no routers.usuarios
+3- @app.get("/") Cria uma rota GET na raiz da API
+4- home() Cria a funcao que sera executada quando acessar a raiz que retorna o json
+
